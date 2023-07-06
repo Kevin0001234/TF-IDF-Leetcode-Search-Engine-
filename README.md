@@ -58,7 +58,7 @@ $  source myenv/bin/activate
 3. Install Requirements:
 
 ```
-$ pip install flask flask-wtf
+$ pip install -r requirements.txt
 ```
 
 
