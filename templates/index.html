@@ -2,34 +2,82 @@
 <html>
   <head>
     <title>Coding Problem Search Engine</title>
-    <link rel="icon" type="image/x-icon" href="https://icons-for-free.com/iconfiles/png/512/coding+html+programming+web+icon-1320184881567336963.png">
+    <link rel="icon" type="image/x-icon" href="https://icons-for-free.com/remix+icons+++others+icons+flash+fill-1324442511618581085/">
     <link rel="stylesheet" href="/static/style.css" />
-    
+    <style>
+      h1 {
+        color: rgb(226, 43, 43);
+      }
+      
+      .form {
+        margin-top: 20px;
+      }
+      
+      .item {
+        margin-bottom: 10px;
+      }
+      
+      .search-input {
+        width: 300px;
+        padding: 5px;
+        border: 1px solid gray;
+        border-radius: 5px;
+      }
+      
+      .submit-button {
+        background-color: rgb(226, 43, 43);
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      
+      .maincontainer {
+        margin-top: 30px;
+      }
+      
+      .result {
+        margin-bottom: 20px;
+      }
+      
+      .result a {
+        color: rgb(226, 43, 43);
+        font-size: 18px;
+        text-decoration: none;
+      }
+      
+      .result a:hover {
+        text-decoration: underline;
+      }
+      
+      .no-result {
+        color: black;
+      }
+    </style>
   </head>
   <body>
-    <h1 class="typewriter" style="color: rgb(226, 43, 43);">Search Your Coding Problems</h1>
+    <h1 class="typewriter">Search Your Coding Problems</h1>
     <div class="form">
       <form method="POST">
         <div class="item">{{ form.hidden_tag() }}</div>
         <div class="item">{{ form.search.label }} :</div>
         <div class="item">{{ form.search(class="search-input") }}</div>
         <div class="item">{{ form.submit(class="submit-button") }}</div>
-       
       </form>
     </div>
     <br>
     <div class="maincontainer">
       {% if results %}
-      {% for result in results %}
-      <div class="result"> <a href="{{ result['Question Link'] }}">{{ result['Question'] }}</a>
-        <br><br>
-      </div>
-      {% endfor %}
-    {% else %}
-      <div class="result" style="color: black;">Sorry no result exists !</div>
-    {% endif %}
+        {% for result in results %}
+          <div class="result">
+            <a href="{{ result['Question Link'] }}">{{ result['Question'] }}</a>
+            <br><br>
+          </div>
+        {% endfor %}
+      {% else %}
+        <div class="no-result">Sorry, no result exists!</div>
+      {% endif %}
     </div>
-    
   </body>
-
 </html>
